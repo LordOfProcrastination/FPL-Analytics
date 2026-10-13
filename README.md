@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -67,3 +68,7 @@ export default tseslint.config([
   },
 ])
 ```
+=======
+# FPL-Analytics
+An interactive Fantasy Premier League analytics dashboard built with React, TypeScript and D3.js. Explore team performance, compare players and visualize FPL statistics.
+>>>>>>> 01bda793e7bba9af57e84bb7eef50292641d9d0d
