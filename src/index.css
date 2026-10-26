@@ -75,3 +75,55 @@ body {
   .main-navigation__links { width: 100%; overflow-x: auto; padding: 4px 0; }
   .main-navigation__link { flex-shrink: 0; padding: 8px 10px; }
 }
+
+.team-page { margin: 24px auto; padding: 26px; max-width: 1480px; border: 1px solid #dedede; border-radius: 30px; background: #fcfcfc; color: #111; }
+.team-page__heading, .team-pitch__heading, .team-player-details__heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.team-page__heading h1 { margin: 0; font-size: 36px; font-weight: 600; }
+.team-page__heading p { margin: 10px 0 0; color: #606060; font-size: 23px; }
+.team-page__milestone { padding: 6px 14px; border-radius: 24px; background: #eee; font-size: 20px; white-space: nowrap; }
+.team-page__search { margin-top: 26px; }
+.team-page__search input { min-width: 0; width: 100%; padding: 9px 12px; border: 1px solid #ccc; border-radius: 8px; background: white; }
+.team-page__search button { padding: 9px 16px; border-radius: 8px; background: #194b37; color: white; cursor: pointer; }
+.team-page__search button:disabled { opacity: .6; cursor: wait; }
+.team-page__manager { margin-top: 20px; color: #606060; }
+.team-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 32px 16px 42px; }
+.team-stats dt { color: #606060; font-size: 19px; }
+.team-stats dd { margin: 12px 0 0; font-size: 36px; font-weight: 600; }
+.team-pitch { padding: 30px 24px 22px; border-radius: 24px; background: #194f3c; color: white; }
+.team-pitch__heading h2 { margin: 0; font-size: 30px; font-weight: 600; }
+.team-pitch__heading > span { color: #c4e1d2; font-size: 23px; }
+.team-pitch__rows { display: grid; gap: 22px; margin-top: 28px; }
+.team-pitch__row { display: flex; justify-content: space-around; gap: 8px; }
+.squad-player { display: flex; flex: 1; min-width: 0; flex-direction: column; align-items: center; gap: 8px; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; font: inherit; }
+.squad-player__shirt { position: relative; display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: #dcfbed; color: #176743; transition: transform 150ms; }
+.squad-player__shirt svg { width: 34px; height: 34px; stroke-width: 2; }
+.squad-player:hover .squad-player__shirt { transform: translateY(-3px); }
+.squad-player__name { max-width: 100%; overflow-wrap: anywhere; text-align: center; font-size: 18px; }
+.squad-player__captain { position: absolute; top: -2px; right: -5px; display: grid; place-items: center; width: 23px; height: 23px; border-radius: 50%; background: #f9dc71; color: #194b37; font-size: 13px; font-weight: bold; }
+.team-bench { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 24px 0 8px; color: #606060; }
+.squad-player--bench .squad-player__shirt { width: 56px; height: 56px; background: #f1f1f1; color: #606060; }
+.squad-player--bench svg { width: 28px; height: 28px; }
+.team-player-details { margin-top: 24px; padding: 18px; border: 1px solid #c6e1d2; border-radius: 12px; background: #effaf3; }
+.team-player-details h3 { font-size: 20px; font-weight: 600; }
+.team-player-details p { margin-top: 8px; }
+.team-player-details button { cursor: pointer; }
+.team-page__status { margin: 28px 0; color: #606060; }
+.team-page button:focus-visible, .team-page input:focus-visible { outline: 3px solid #35a877; outline-offset: 4px; }
+@media (max-width: 640px) {
+  .team-page { margin: 12px; padding: 16px; border-radius: 20px; }
+  .team-page__heading { align-items: flex-start; }
+  .team-page__heading h1 { font-size: 28px; }
+  .team-page__heading p { font-size: 16px; }
+  .team-page__milestone { font-size: 12px; padding: 6px 10px; }
+  .team-stats { gap: 12px; margin: 28px 0; }
+  .team-stats dt { font-size: 13px; }
+  .team-stats dd { font-size: 22px; }
+  .team-pitch { padding: 20px 10px; border-radius: 16px; }
+  .team-pitch__heading h2 { font-size: 22px; }
+  .team-pitch__heading > span { font-size: 16px; }
+  .team-pitch__rows { gap: 26px; }
+  .squad-player__shirt { width: 44px; height: 44px; }
+  .squad-player__shirt svg { width: 26px; height: 26px; }
+  .squad-player__name { font-size: 12px; }
+  .squad-player--bench .squad-player__shirt { width: 42px; height: 42px; }
+}
