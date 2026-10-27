@@ -16,6 +16,7 @@ export interface IFplEvent {
 }
 
 export interface IBootstrapData {
+  total_players: number;
   elements: IFplPlayer[];
   events: IFplEvent[];
 }
@@ -30,4 +31,26 @@ export interface IFplPick {
 
 export interface IGameweekPicks {
   picks: IFplPick[];
+}
+
+export interface IGameweekHistory {
+  event: number;
+  points: number;
+  total_points: number;
+}
+
+export interface IEntryHistory {
+  current: IGameweekHistory[];
+}
+
+export interface IPlayerHistoryRow {
+  round: number;
+  goals_scored: number;
+  assists: number;
+  expected_goals: string;
+  expected_assists: string;
+}
+
+export interface IPlayerSummary {
+  history: IPlayerHistoryRow[];
 }

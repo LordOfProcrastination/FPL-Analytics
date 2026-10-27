@@ -1,5 +1,6 @@
 ﻿import { useState } from "react";
-import { Shirt, X } from "lucide-react";
+import { Shirt } from "lucide-react";
+import PlayerOverviewModal from "./PlayerOverviewModal";
 import type { ISquadPlayer } from "../../hooks/UseTeamSquad";
 
 interface Props {
@@ -58,13 +59,7 @@ export default function TeamFormation({ startingXI, bench, gameweek }: Props) {
         {bench.map((pick) => playerButton(pick, true))}
       </div>
       {selectedPlayer && (
-        <section className="team-player-details" aria-label="Selected player statistics" aria-live="polite">
-          <div className="team-player-details__heading">
-            <h3>{selectedPlayer.player.web_name}</h3>
-            <button type="button" aria-label="Close player details" onClick={() => setSelectedPlayer(null)}><X size={20} /></button>
-          </div>
-          <p>{positionNames[selectedPlayer.player.element_type]} · £{(selectedPlayer.player.now_cost / 10).toFixed(1)}m · {selectedPlayer.player.total_points} season points</p>
-        </section>
+        <PlayerOverviewModal key={selectedPlayer.element} pick={selectedPlayer} onClose={() => setSelectedPlayer(null)} />
       )}
     </section>
   );

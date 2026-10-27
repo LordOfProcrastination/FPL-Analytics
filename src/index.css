@@ -127,3 +127,76 @@ body {
   .squad-player__name { font-size: 12px; }
   .squad-player--bench .squad-player__shirt { width: 42px; height: 42px; }
 }
+
+.gameweek-performance { margin-top: 32px; }
+.gameweek-performance__heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; }
+.gameweek-performance h2 { margin: 0; font-size: 30px; font-weight: 600; }
+.gameweek-performance__heading p { margin: 12px 0 0; color: #606060; font-size: 20px; }
+.gameweek-performance__controls { display: flex; padding: 4px; gap: 4px; border-radius: 10px; background: #eee; }
+.gameweek-performance__controls button { padding: 9px 12px; border-radius: 7px; color: #606060; cursor: pointer; }
+.gameweek-performance__controls button[aria-pressed="true"] { background: #194f3c; color: white; }
+.gameweek-performance__chart { overflow-x: auto; }
+.gameweek-performance__chart svg { display: block; width: 100%; }
+.gameweek-performance__label { fill: #686868; font-size: 15px; }
+.gameweek-performance__note { margin-top: 12px; color: #606060; font-size: 13px; }
+@media (max-width: 640px) {
+  .gameweek-performance h2 { font-size: 24px; }
+  .gameweek-performance__heading p { font-size: 16px; }
+  .gameweek-performance__controls { font-size: 14px; }
+}
+
+.player-card { max-width: 544px; margin: 28px auto 0; overflow: hidden; border: 1px solid #dce7e1; border-radius: 28px; background: #fff; color: #173e32; box-shadow: 0 12px 32px #193e3208; }
+.player-card__header { position: relative; display: flex; align-items: center; gap: 20px; padding: 36px 32px; background: #194f3f; color: #fff; }
+.player-card__icon { display: grid; place-items: center; flex-shrink: 0; width: 64px; height: 64px; border-radius: 20px; background: #def9ed; color: #19583f; }
+.player-card h3 { padding-right: 16px; font-size: 30px; font-weight: 600; }
+.player-card__header p { margin-top: 10px; color: #d3e6dd; font-size: 17px; }
+.player-card__close { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; padding: 6px; border-radius: 50%; cursor: pointer; }
+.player-card__close:hover { background: #ffffff20; }
+.player-card__summary { display: flex; justify-content: space-between; gap: 16px; padding: 28px 30px; background: #f2f8f5; font-size: 17px; }
+.player-card__totals { padding: 36px 30px 28px; }
+.player-card__eyebrow { margin-bottom: 26px; color: #607c6e; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+.player-card table { width: 100%; border-collapse: collapse; }
+.player-card th { font-weight: 400; text-align: left; }
+.player-card thead th { padding-bottom: 18px; color: #607c6e; font-size: 14px; }
+.player-card td, .player-card tbody th { padding: 14px 0; font-size: 18px; }
+.player-card td:last-child, .player-card thead th:last-child { text-align: right; }
+.player-card td.player-card__actual { font-size: 32px; font-weight: 600; text-align: center; padding-right: 18px; }
+.player-card__muted { color: #666; }
+.player-card__difference { display: inline-block; padding: 12px 10px; border-radius: 10px; font-size: 16px; font-variant-numeric: tabular-nums; }
+.player-card__difference.is-positive { background: #e7f6ec; color: #087e48; }
+.player-card__difference.is-negative { background: #fcecef; color: #cf314e; }
+.player-card__chart-section { padding: 28px 30px 32px; border-top: 1px solid #e0e9e4; }
+.player-card__tabs { display: flex; gap: 4px; padding: 6px; border-radius: 14px; background: #edf3ef; }
+.player-card__tabs button { flex: 1; padding: 16px 10px; border-radius: 11px; font-size: 21px; cursor: pointer; }
+.player-card__tabs button[aria-pressed="true"] { background: #fff; box-shadow: 0 3px 8px #173e3210; }
+.player-card h4 { margin: 32px 0 20px; font-size: 19px; font-weight: 400; }
+.player-card__legend { display: flex; gap: 24px; margin-bottom: 22px; color: #607c6e; font-size: 14px; }
+.player-card__legend span { display: inline-flex; align-items: center; gap: 8px; }
+.player-card__legend i { width: 25px; border-top: 3px solid #32ae7c; }
+.player-card__legend i.is-expected { border-top: 2px dashed #879a90; }
+.player-card svg { display: block; width: 100%; }
+.player-card__icon svg { width: 26px; height: 26px; }
+.player-card__close svg { width: 20px; }
+.player-card svg text { fill: #173e32; font-size: 12px; }
+.player-card__footnote { margin-top: 18px; text-align: center; color: #607c6e; font-size: 14px; }
+.player-card__status { padding: 32px; }
+@media (max-width: 480px) {
+  .player-card__header { padding: 28px 20px; gap: 14px; }
+  .player-card h3 { font-size: 24px; }
+  .player-card__header p { font-size: 14px; }
+  .player-card__summary, .player-card__totals, .player-card__chart-section { padding: 22px 16px; }
+  .player-card__summary { font-size: 14px; }
+  .player-card thead th { font-size: 11px; }
+  .player-card td, .player-card tbody th { font-size: 14px; }
+  .player-card td.player-card__actual { font-size: 26px; }
+  .player-card__difference { padding: 10px 6px; font-size: 13px; }
+}
+
+.player-modal { width: min(544px, calc(100vw - 32px)); max-width: none; max-height: calc(100dvh - 32px); margin: auto; padding: 0; border: 0; border-radius: 28px; background: #fff; overflow-y: auto; overscroll-behavior: contain; box-shadow: 0 24px 80px #0004; }
+.player-modal::backdrop { background: #102d24a6; backdrop-filter: blur(3px); }
+.player-modal .player-card { margin: 0; max-width: none; border: 0; box-shadow: none; }
+.player-modal button:focus-visible { outline: 3px solid #35a877; outline-offset: 3px; }
+
+.team-stats__percentile { margin-top: 8px; color: #176743; font-size: 15px; font-weight: 500; }
+.team-stats__percentile span { display: block; margin-top: 4px; color: #606060; font-size: 13px; font-weight: 400; }
+@media (max-width: 640px) { .team-stats__percentile { font-size: 12px; } .team-stats__percentile span { font-size: 11px; } }

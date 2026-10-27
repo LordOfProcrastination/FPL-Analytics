@@ -19,6 +19,7 @@ export function useTeamSquad(teamId: number | null) {
   const [data, setData] = useState<ITeamSquad | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [totalPlayers, setTotalPlayers] = useState<number | null>(null);
 
   useEffect(() => {
     if (teamId === null) {
@@ -34,6 +35,7 @@ export function useTeamSquad(teamId: number | null) {
 
       try {
         const bootstrap = await fetchBootstrapData();
+        if (!cancelled) setTotalPlayers(bootstrap.total_players);
 
         // Find the current or latest finished gameweek
         const gameweek =
@@ -94,5 +96,5 @@ export function useTeamSquad(teamId: number | null) {
     };
   }, [teamId]);
 
-  return { data, loading, error };
+  return { data, loading, error, totalPlayers };
 }

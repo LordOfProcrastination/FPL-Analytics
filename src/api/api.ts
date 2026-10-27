@@ -1,5 +1,5 @@
 import type { IEntry } from "../interfaces/IEntry";
-import type { IBootstrapData, IGameweekPicks } from "../interfaces/IFpl";
+import type { IBootstrapData, IGameweekPicks, IEntryHistory } from "../interfaces/IFpl";
 
 // Vite proxies this same-origin URL to the official FPL API during development.
 // A deployed frontend can override it with the URL of its own server-side proxy.
@@ -24,6 +24,10 @@ export async function getEntryById(teamId: number): Promise<IEntry> {
   return fetchJson<IEntry>(url);
 }
 
+export async function getEntryHistory(teamId: number): Promise<IEntryHistory> {
+  return fetchJson<IEntryHistory>(`${base}/entry/${teamId}/history/`);
+}
+
 // Get all players, teams and gameweek information
 export async function getBootstrapData(): Promise<IBootstrapData> {
   return fetchJson<IBootstrapData>(`${base}/bootstrap-static/`);
@@ -37,4 +41,10 @@ export async function getGameweekPicks(
   return fetchJson<IGameweekPicks>(
     `${base}/entry/${teamId}/event/${gameweek}/picks/`,
   );
+}
+
+export async function getPlayerSummary(playerId: number, signal?: AbortSignal): Promise<import("../interfaces/IFpl").IPlayerSummary> {
+  const response = await fetch(`${base}/element-summary/${playerId}/`, { signal, headers: { Accept: "application/json" } });
+  if (!response.ok) throw new Error(`Could not load player statistics (${response.status}).`);
+  return response.json();
 }
