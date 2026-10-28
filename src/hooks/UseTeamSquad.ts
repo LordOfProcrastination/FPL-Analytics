@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { fetchBootstrapData } from "../services/PlayerService";
 import { fetchGameweekPicks } from "../services/GameweekService";
 
-import type { IFplPick, IFplPlayer } from "../interfaces/IFpl";
+import type { IFplPick, IFplPlayer, IFplTeam } from "../interfaces/IFpl";
 
 export interface ISquadPlayer extends IFplPick {
   player: IFplPlayer;
+  club?: IFplTeam;
 }
 
 interface ITeamSquad {
@@ -51,6 +52,7 @@ export function useTeamSquad(teamId: number | null) {
         const playerMap = new Map(
           bootstrap.elements.map((player) => [player.id, player]),
         );
+        const clubMap = new Map(bootstrap.teams.map((club) => [club.id, club]));
 
         const squad: ISquadPlayer[] = picks.picks.map((pick) => {
           const player = playerMap.get(pick.element);
@@ -62,6 +64,7 @@ export function useTeamSquad(teamId: number | null) {
           return {
             ...pick,
             player,
+            club: clubMap.get(player.team),
           };
         });
 

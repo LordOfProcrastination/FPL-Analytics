@@ -1,6 +1,9 @@
 // types/fplTypes.ts
 export interface Player {
   id: number;
+  code: number;
+  photo: string;
+  element_type: number;
   first_name: string;
   second_name: string;
   team: number;
@@ -10,6 +13,7 @@ export interface Player {
 
 export interface Team {
   id: number;
+  code: number;
   name: string;
   short_name: string;
 }

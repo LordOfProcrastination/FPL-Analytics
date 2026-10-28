@@ -1,5 +1,5 @@
 ﻿import { useState } from "react";
-import { Shirt } from "lucide-react";
+import PlayerImage from "../shared/PlayerImage";
 import PlayerOverviewModal from "./PlayerOverviewModal";
 import type { ISquadPlayer } from "../../hooks/UseTeamSquad";
 
@@ -27,12 +27,15 @@ export default function TeamFormation({ startingXI, bench, gameweek }: Props) {
         type="button"
         className={`squad-player${substitute ? " squad-player--bench" : ""}`}
         onClick={() => setSelectedPlayer(pick)}
-        aria-label={`View ${pick.player.web_name}, ${positionNames[pick.player.element_type]}${pick.is_captain ? ", captain" : pick.is_vice_captain ? ", vice captain" : ""}`}
+        aria-label={`View ${pick.player.web_name}, ${positionNames[pick.player.element_type]}${pick.is_captain ? ", captain" : pick.is_vice_captain ? ", vice captain" : ""}${pick.player.status && pick.player.status !== "a" ? `, ${pick.player.news || "Unavailable or doubtful"}` : ""}`}
       >
         <span className="squad-player__shirt">
-          <Shirt aria-hidden="true" />
+          <PlayerImage player={pick.player} club={pick.club} />
           {(pick.is_captain || pick.is_vice_captain) && (
             <span className="squad-player__captain">{pick.is_captain ? "C" : "V"}</span>
+          )}
+          {pick.player.status && pick.player.status !== "a" && (
+            <span className="squad-player__status" title={pick.player.news || "Unavailable or doubtful"} aria-hidden="true">!</span>
           )}
         </span>
         <span className="squad-player__name">{pick.player.web_name}</span>

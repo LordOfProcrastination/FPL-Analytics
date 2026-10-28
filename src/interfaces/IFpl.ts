@@ -1,10 +1,21 @@
 export interface IFplPlayer {
   id: number;
+  code: number;
+  photo: string;
   web_name: string;
   team: number;
   element_type: number;
   now_cost: number;
   total_points: number;
+  status?: string;
+  news?: string;
+}
+
+export interface IFplTeam {
+  id: number;
+  code: number;
+  name: string;
+  short_name: string;
 }
 
 export interface IFplEvent {
@@ -17,6 +28,7 @@ export interface IFplEvent {
 
 export interface IBootstrapData {
   total_players: number;
+  teams: IFplTeam[];
   elements: IFplPlayer[];
   events: IFplEvent[];
 }

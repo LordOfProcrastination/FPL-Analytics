@@ -1,5 +1,6 @@
 ﻿import { useEffect, useState } from "react";
-import { Shirt, X } from "lucide-react";
+import { X } from "lucide-react";
+import PlayerImage from "../shared/PlayerImage";
 import { line, scaleLinear } from "d3";
 import { getPlayerSummary } from "../../api/api";
 import type { IPlayerHistoryRow } from "../../interfaces/IFpl";
@@ -57,7 +58,7 @@ export default function PlayerOverviewCard({ pick, onClose }: { pick: ISquadPlay
   return (
     <section className="player-card" aria-label={`${pick.player.web_name} player overview`}>
       <header className="player-card__header">
-        <span className="player-card__icon"><Shirt aria-hidden="true" /></span>
+        <span className="player-card__icon"><PlayerImage player={pick.player} club={pick.club} /></span>
         <div><h3>{pick.player.web_name}</h3><p>{positions[pick.player.element_type]} · Player overview</p></div>
         <button className="player-card__close" type="button" aria-label="Close player details" onClick={onClose}><X size={20} /></button>
       </header>

@@ -200,3 +200,10 @@ body {
 .team-stats__percentile { margin-top: 8px; color: #176743; font-size: 15px; font-weight: 500; }
 .team-stats__percentile span { display: block; margin-top: 4px; color: #606060; font-size: 13px; font-weight: 400; }
 @media (max-width: 640px) { .team-stats__percentile { font-size: 12px; } .team-stats__percentile span { font-size: 11px; } }
+
+.player-image { display: block; width: 100%; height: 100%; overflow: hidden; box-sizing: border-box; border: 2px solid var(--club-primary, #718078); border-radius: inherit; background: linear-gradient(135deg, #f5f8f6 60%, var(--club-secondary, #e8eeeb)); }
+.player-image__asset { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
+.player-image__asset--shirt { padding: 5px; box-sizing: border-box; object-position: center; }
+.squad-player__status { position: absolute; left: -5px; top: -2px; display: grid; place-items: center; width: 22px; height: 22px; border: 2px solid white; border-radius: 50%; background: #b42318; color: white; font-size: 14px; font-weight: bold; z-index: 1; }
+.squad-player__captain { z-index: 1; border: 1px solid #194b37; }
+.player-card__icon .player-image { border-radius: 18px; }
